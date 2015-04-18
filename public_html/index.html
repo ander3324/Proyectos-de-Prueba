@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Biblioteca Virtual</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <!--
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        -->
+                        <a class="navbar-brand" href="">
+                            <img style="display: inline; width: 3.5em; height: 3.5em; margin-top: -0.8em;" src="assets/img/prof-tux.png" alt="Home">
+                            Biblioteca Virtual
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group has-success">
+                                <input type="text" class="form-control" name="usuario" placeholder="Usuario: ">
+                            </div>
+                            <div class="form-group has-success">
+                                <input type="password" class="form-control" name="pass" placeholder="Contraseña:">
+                            </div>
+                            <button type="submit" class="btn btn-default">Ingresar</button> 
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--  tabla de datos:  -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Listado de Libros:</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>ISBN</th>
+                                <th>TÍTULO</th>
+                                <th>FECHA LANZAMIENTO</th>
+                                <th>AUTOR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8976</td>
+                                <td>EL ARTE DE COMER BIEN</td>
+                                <td>12/12/2007</td>
+                                <td>TARI MADESLE</td>
+                                <td>
+                                    <a href="#" class="btn btn-info btn-sm" onclick="modal('HOLA', 'HOLA');">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        Editar
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-fire"></span>
+                                        Borrar
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2345</td>
+                                <td>COMER PARA PODER CRESCER</td>
+                                <td>12/12/2014</td>
+                                <td>TARI MADESLE</td>
+                                <td>
+                                    <a href="#" class="btn btn-info btn-sm" onclick="modal('HOLA', 'HOLA');">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        Editar
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-fire"></span>
+                                        Borrar
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7766</td>
+                                <td>EL ARTE DE RATEAR</td>
+                                <td>12/12/2004</td>
+                                <td>ALE AMARELO</td>
+                                <td>
+                                    <a href="#" class="btn btn-info btn-sm" onclick="modal('HOLA', 'HOLA');">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        Editar
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-fire"></span>
+                                        Borrar
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--PIE DEL PANEL - con botones alineados a la derecha-->
+                <div class="panel-footer text-right">
+                    <a href="#" class="btn btn-primary btn-sm" onclick="modal('Nuevo Libro', 'frmAbm.html');">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Nuevo Libro
+                    </a>
+
+                </div>
+            </div>
+            <div >
+                <p align="center">
+                    Ejemplo de página HTML - Curso JAVA 2 ENTERPRISE
+                </p>
+            </div>
+
+            <a href="#"  style="visibility: hidden;" class="btn" id="abrirBtn"></a>
+            <!--MODAL-->
+            <div class="modal fade" id="dlgAbm" tabindex="-1" role="dialog" aria-labelledby="lblDlg" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">
+                                    &times;
+                                </span>
+                                <span class="sr-only">
+                                    Cerrar
+                                </span>
+                            </button>
+                            <h4 class="modal-title" id="lblDlg">Libros</h4>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script>
+                        var title;
+                        var from;
+                        $('#abrirBtn').click(function () {
+                            $('#lblDlg').html(title);
+                            $('.modal-body').load(from, function (result) {
+                                $('#dlgAbm').modal({show: true});
+                            });
+                        });
+
+                        function modal(title, form) {
+                            title = title;
+                            from = form;
+                            $('#abrirBtn').click();
+                        }
+        </script>
+
+    </body>
+</html>
